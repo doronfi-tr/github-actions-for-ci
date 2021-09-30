@@ -1,20 +1,12 @@
 name: Node CI
 
-
-
 on: [push]
-
-
 
 jobs:
 
   build:
-
-
-
+  
     runs-on: ubuntu-latest
-
-
 
     steps:
 
@@ -27,11 +19,13 @@ jobs:
           npm install
 
           npm run build
-
-
+          
+      - uses: actions/upload-artifact@main
+        with:
+          name: webpack artifacts
+          path: public/
 
   test:
-
 
 
     runs-on: ubuntu-latest
